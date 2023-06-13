@@ -1,10 +1,8 @@
 name: My Deploy
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ QA ]
 
 jobs:
   build:
@@ -13,6 +11,6 @@ jobs:
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID_QA }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
           
